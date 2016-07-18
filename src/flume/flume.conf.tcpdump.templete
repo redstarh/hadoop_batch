@@ -1,0 +1,17 @@
+
+a1.channels=c1
+a1.channels.c1.capacity=100000000
+a1.channels.c1.transactionCapacity=10000000
+a1.channels.c1.type=memory
+a1.sinks=k1
+a1.sinks.k1.batchSize=100
+a1.sinks.k1.brokerList=dataservice-d01:6667,dataservice-d02:6667,dataservice-d03:6667
+a1.sinks.k1.channel=c1
+a1.sinks.k1.requiredAcks=1
+a1.sinks.k1.topic=tworld
+a1.sinks.k1.type=org.apache.flume.sink.kafka.KafkaSink
+a1.sources=r1
+a1.sources.r1.channels=c1
+a1.sources.r1.command=/usr/sbin/tcpdump
+a1.sources.r1.shell=/bin/bash -c
+a1.sources.r1.type=exec
