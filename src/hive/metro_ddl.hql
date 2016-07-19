@@ -47,6 +47,6 @@ HH22                  int     ,
 HH23                  int     ,
 Sum                   int 
 ) 
-ROW FORMAT DELIMITED FIELDS TERMINATED BY "\t"  
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ","  
 LOCATION '/data/dw/original/metro_boading_person'; 
 
