@@ -1,7 +1,19 @@
 
+ 
+CREATE EXTERNAL TABLE batch.metro_payment_amount (
+dtm                   String  ,
+commerce_Number       String  ,
+payment_dt            String  ,
+amount                int  
+) 
+PARTITIONED BY ( base_dt STRING ) 
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ","  
+LOCATION '/data/in/raw/payment_amount/'
+; 
 
+ALTER TABLE batch.metro_payment_amount ADD   PARTITION(base_dt='${YMD}');
 
-
+ 
 
 CREATE EXTERNAL TABLE batch.metro_commerce (
 sequence              int     ,
@@ -49,4 +61,3 @@ Sum                   int
 ) 
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ","  
 LOCATION '/data/dw/original/metro_boading_person'; 
-
