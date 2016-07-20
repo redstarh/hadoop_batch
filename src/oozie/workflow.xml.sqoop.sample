@@ -1,0 +1,169 @@
+<workflow-app xmlns='uri:oozie:workflow:0.5' name='wfs.t49huwk17dww'>
+	<parameters>
+		<property>
+			<name>control.start-xy</name>
+			<value>x=291,y=66</value>
+		</property>
+		<property>
+			<name>control.start-title</name>
+			<value>Start</value>
+		</property>
+		<property>
+			<name>N819626a0-3965-8cba-70ae-a200b3ca15bf-xy</name>
+			<value>x=308,y=656</value>
+		</property>
+		<property>
+			<name>N819626a0-3965-8cba-70ae-a200b3ca15bf-title</name>
+			<value>End</value>
+		</property>
+		<property>
+			<name>N6c1b9cd0-27f8-f175-cdcd-2450fa6c6dad</name>
+			<value>tech.hive</value>
+		</property>
+		<property>
+			<name>N6c1b9cd0-27f8-f175-cdcd-2450fa6c6dad-xy</name>
+			<value>x=271,y=264</value>
+		</property>
+		<property>
+			<name>N6c1b9cd0-27f8-f175-cdcd-2450fa6c6dad-type</name>
+			<value>hive</value>
+		</property>
+		<property>
+			<name>N6c1b9cd0-27f8-f175-cdcd-2450fa6c6dad-title</name>
+			<value>Hive</value>
+		</property>
+		<property>
+			<name>Na2d1cdde-0570-88b6-23d5-e28aa6194db1-xy</name>
+			<value>x=807,y=285</value>
+		</property>
+		<property>
+			<name>Na2d1cdde-0570-88b6-23d5-e28aa6194db1-title</name>
+			<value>Kill</value>
+		</property>
+		<property>
+			<name>N98b41e8d-11ed-4b39-8439-8dcb4cb272aa</name>
+			<value>tech.sqoop</value>
+		</property>
+		<property>
+			<name>N98b41e8d-11ed-4b39-8439-8dcb4cb272aa-xy</name>
+			<value>x=274,y=447</value>
+		</property>
+		<property>
+			<name>N98b41e8d-11ed-4b39-8439-8dcb4cb272aa-type</name>
+			<value>sqoop</value>
+		</property>
+		<property>
+			<name>N98b41e8d-11ed-4b39-8439-8dcb4cb272aa-title</name>
+			<value>Sqoop</value>
+		</property>
+		<property>
+			<name>N02500987-431f-4bb2-e075-861468314a51-xy</name>
+			<value>x=778,y=488</value>
+		</property>
+		<property>
+			<name>N02500987-431f-4bb2-e075-861468314a51-title</name>
+			<value>Kill</value>
+		</property>
+	</parameters>
+	<start to='N6c1b9cd0-27f8-f175-cdcd-2450fa6c6dad' />
+	<action name='N6c1b9cd0-27f8-f175-cdcd-2450fa6c6dad'  >
+		<hive xmlns='uri:oozie:hive-action:0.5'>
+			<job-tracker>bdsdevname01:8050</job-tracker>
+			<name-node>hdfs://bdsdevname01:8020</name-node>
+			<job-xml>/src/conf/hive-site.xml</job-xml>
+			<configuration>
+				<property>
+					<name>dfs.client.failover.proxy.provider.bdsdevcluster</name>
+					<value>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider</value>
+				</property>
+				<property>
+					<name>dfs.ha.automatic-failover.enabled</name>
+					<value>true</value>
+				</property>
+				<property>
+					<name>dfs.ha.namenodes.bdsdevcluster</name>
+					<value>nn1,nn2</value>
+				</property>
+				<property>
+					<name>dfs.namenode.rpc-address.bdsdevcluster.nn1</name>
+					<value>bdsdevname01:8020</value>
+				</property>
+				<property>
+					<name>dfs.namenode.rpc-address.bdsdevcluster.nn2</name>
+					<value>bdsdevdata01:8020</value>
+				</property>
+				<property>
+					<name>dfs.client.use.datanode.hostname</name>
+					<value>true</value>
+				</property>
+				<property>
+					<name>dfs.datanode.use.datanode.hostname</name>
+					<value>true</value>
+				</property>
+				<property>
+					<name>oozie.use.system.libpath</name>
+					<value>true</value>
+				</property>
+				<property>
+					<name>oozie.libpath</name>
+					<value>/user/oozie/share/lib/</value>
+				</property>
+			</configuration>
+			<script>/src/hive/${table}</script>
+			<param>jobTracker=${jobTracker}</param>
+			<param>hdfs=${nameNode}</param>
+		</hive>
+		<ok to='N98b41e8d-11ed-4b39-8439-8dcb4cb272aa' />
+		<error to='Na2d1cdde-0570-88b6-23d5-e28aa6194db1' />
+	</action>
+	<kill name='Na2d1cdde-0570-88b6-23d5-e28aa6194db1'>
+		<message>hive job kill</message>
+	</kill>
+	<action name='N98b41e8d-11ed-4b39-8439-8dcb4cb272aa'  >
+		<sqoop xmlns='uri:oozie:sqoop-action:0.4'>
+			<job-tracker>bdsdevname01:8050</job-tracker>
+			<name-node>hdfs://bdsdevname01:8020</name-node>
+			<configuration>
+				<property>
+					<name>dfs.client.failover.proxy.provider.bdsdevcluster</name>
+					<value>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider</value>
+				</property>
+				<property>
+					<name>dfs.ha.automatic-failover.enabled</name>
+					<value>true</value>
+				</property>
+				<property>
+					<name>dfs.ha.namenodes.bdsdevcluster</name>
+					<value>nn1,nn2</value>
+				</property>
+				<property>
+					<name>dfs.namenode.rpc-address.bdsdevcluster.nn1</name>
+					<value>bdsdevname01:8020</value>
+				</property>
+				<property>
+					<name>dfs.namenode.rpc-address.bdsdevcluster.nn2</name>
+					<value>bdsdevdata01:8020</value>
+				</property>
+				<property>
+					<name>dfs.client.use.datanode.hostname</name>
+					<value>true</value>
+				</property>
+				<property>
+					<name>dfs.datanode.use.datanode.hostname</name>
+					<value>true</value>
+				</property>
+				<property>
+					<name>oozie.use.system.libpath</name>
+					<value>false</value>
+				</property>
+			</configuration>
+			<arg>export --connect ${jdbc_url} --username ${jdbc_id} --password-file ${jdbc_password_file} --export-dir /mdw/cdc/etl/tas/ESS_MUSERS_DTL/20150405/* --input-fields-terminated-by "\t" --table ESS_MUSERS_DTL --update-key MUSER_NUM --update-mode allowinsert</arg>
+		</sqoop>
+		<ok to='N819626a0-3965-8cba-70ae-a200b3ca15bf' />
+		<error to='N02500987-431f-4bb2-e075-861468314a51' />
+	</action>
+	<kill name='N02500987-431f-4bb2-e075-861468314a51'>
+		<message>sqoop job kill</message>
+	</kill>
+	<end name='N819626a0-3965-8cba-70ae-a200b3ca15bf' />
+</workflow-app>
