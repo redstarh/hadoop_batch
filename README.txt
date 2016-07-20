@@ -12,14 +12,16 @@
 22
 
 
-/data/meta/${table}                   // meta t
-/data/in/raw  /${YMD}                 // interface 원본 파일
-        /clean/${YMD}                 // 
+/skacademy/batch/data/meta/${table}                   // meta table
+/skacademy/batch/data/in  /raw  /${table}/${YMD}      // interface 원본 파일
+                          /clean/${table}/${YMD}      // interface Cleanging 파일
 
-/data/dw  /history /${table}/p_${YMD} // 이력성
-/data/dw  /original/${table}/         // 원부성 
+/skacademy/batch/data/dw  /history /${table}/p_${YMD} // 이력성 DW 파일
+/skacademy/batch/data/dw  /original/${table}/         // 원부성 DW 파일 
 
-/data/mart/${table}/p_${YMD}          // 데이터 마트 
+/skacademy/batch/data/mart/${table}/p_${YMD}          // 데이터 마트 
+
+
 
 
 
