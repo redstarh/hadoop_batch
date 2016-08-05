@@ -1,0 +1,20 @@
+
+## 1.ambari-server ## 
+ambari-server setup --jdbc-db=mysql --jdbc-driver=/usr/share/java/mysql-connector-java-5.1.17.jar
+
+## 2. oozie user 및 접속 권한
+
+mysql -u root 
+create database oozie;
+
+create user 'oozie'@'%'        identified by 'oozie';
+grant all privileges on *.* to 'oozie'@'%';
+FLUSH PRIVILEGES;
+
+## 3. oozie mysq jdbc setting 
+
+cd /usr/hdp/current/oozie-client
+bin/oozie-setup.sh prepare-war
+
+
+oozie job -oozie http://localhost:11000/oozie -config examples/apps/map-reduce/job.properties -run
