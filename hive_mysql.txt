@@ -1,4 +1,17 @@
 
+
+##1. python 수정 
+
+vi /usr/lib/python2.6/site-packages/resource_management/libraries/functions/get_user_call_output.py
+   /usr/lib/python2.6/site-packages/resource_management/libraries/functions/get_user_call_output.py
+   /usr/lib/python2.6/site-packages/resource_management/core/logger.py
+  /var/lib/ambari-agent/cache/common-services/HIVE/0.12.0.2.0/package/scripts/hive_metastore.py
+첫 줄에 아래 내용 삽입  
+#-*- coding: utf-8 -*-
+# encoding=utf8
+ 
+
+
 create database hive;
 
 
