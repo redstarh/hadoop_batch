@@ -40,4 +40,89 @@ agent.sinks.fileRollSink.sink.rollInterval = 0
 
 
 
+ 
+
+# 폴더 만들기
+
+ 
+
+mkdir /tmp/fileroll
+
+mkdir /tmp/spool
+
+# Agent 실행
+
+ 
+
+bin/flume-ng agent --conf-file conf/case01.conf.properties --name agent 
+
+# data 생성
+
+ 
+
+ls -al /tmp/fileroll
+
+echo hello > /tmp/spool/hello.txt
+
+echo bye > /tmp/spool/bye.txt
+
+# 결과 확인
+
+ 
+
+ls -al /tmp/spool
+
+ls -al /tmp/fileroll
+
+ 
+
+ 
+
+ 
+
+# config file 생성 (conf/case02.conf )
+
+agent.sources = execSource
+
+agent.channels = fileChannel
+
+agent.sinks = hdfsSink
+
+ 
+
+agent.sources.execSource.type = exec
+
+agent.sources.execSource.command = tail -f /tmp/buffer
+
+agent.sources.execSource.batchSize = 5
+
+agent.sources.execSource.channels = fileChannel
+
+agent.sources.execSource.interceptors = timestampInterceptor
+
+agent.sources.execSource.interceptors.timestampInterceptor.type = timestamp
+
+ 
+
+agent.sinks.hdfsSink.type = hdfs
+
+agent.sinks.hdfsSink.hdfs.path = hdfs://bigdata20-02/flume/%Y%m%d-%H%M%S
+
+agent.sinks.hdfsSink.hdfs.fileType = DataStream
+
+agent.sinks.hdfsSink.hdfs.writeFormat = Text
+
+agent.sinks.hdfsSink.channel = fileChannel
+
+ 
+
+agent.channels.fileChannel.type = file
+
+agent.channels.fileChannel.checkpointDir = /tmp/flume/checkpoint
+
+agent.channels.fileChannel.dataDirs = /tmp/flume/data
+
+ 
+
+
 
