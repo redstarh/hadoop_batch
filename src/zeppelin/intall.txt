@@ -1,0 +1,30 @@
+
+test 
+zeppelin 설치 
+
+
+adduser zeppelin 
+adduser zeppelin
+
+su - zeppelin
+
+http://apache.tt.co.kr/zeppelin/zeppelin-0.6.0/zeppelin-0.6.0-bin-all.tgz
+tar -zxvf zeppelin-0.6.0-bin-all.tgz
+
+
+cd ./zeppelin/conf 
+
+cp zeppelin-env.sh.template zeppelin-env.sh
+vi zeppelin-env.sh
+
+export ZEPPELIN_PORT=9090
+export HADOOP_HOME=/usr/hdp/current/hadoop-client
+export SPARK_HOME=/usr/hdp/current/spark-client
+export JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-amd64
+
+cd /bin
+ ./zeppelin-daemon.sh start
+
+
+
+
