@@ -1,0 +1,47 @@
+
+hive --service metastore
+
+
+h
+/home/hadoop/hive-1.2.1/bin/hive --service hiveserver2 
+
+export HIVE_HOME=/home/hadoop/hive-1.2.1
+export HADOOP_HOME=/home/hadoop/hadoop-2.7.2
+export HADOOP_CONF_DIR=/home/hadoop/hadoop-2.7.2/etc/hadoop
+
+
+Sys.setenv(RHIVE_DATA="/home/ubuntu/hadoop-1.2.1/R/rhive_data")
+
+
+Sys.getenv("HIVE_HOME")
+
+
+#######################################################################
+R CMD Rserve
+library(RHive)
+Sys.setenv(HIVE_HOME="/home/hadoop/hive-1.2.1")
+Sys.setenv(HADOOP_HOME="/home/hadoop/hadoop-2.7.2")
+Sys.setenv(HADOOP_CONF_DIR="/home/hadoop/hadoop-2.7.2/etc/hadoop")
+Sys.setenv(HADOOP_CMD=”/home/hadoop/hadoop-2.7.2/bin”)
+Sys.setenv(HIVE_CMD=”/home/hadoop/hive-1.2.1/bin”)
+
+rhive.connect("skcc-intern-08")
+
+#######################################################################
+ Sys.getenv("HADOOP_HOME")
+
+R CMD INSTALL RHive_2.0-0.10.tar.gz
+
+library(RHive)
+
+rhive.connect(host, port, hiveServer2)
+rhive.connect(skcc-intern-08,10000,hiveServer2)
+
+
+
+Sys.setenv(RHIVE_HIVESERVER_VERSION="2")
+
+ Permission denied: user=root, access=WRITE, inode="/rhive/lib/2.0-0.10/rhive_udf.jar":hadoop:supergroup:drwxr-xr-x
+
+
+/rhive/lib/2.0-0.10/rhive_udf.jar
