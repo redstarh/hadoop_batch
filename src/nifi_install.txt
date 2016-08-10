@@ -1,0 +1,15 @@
+
+
+su - hdfs 
+wget http://mirror.navercorp.com/apache/nifi/0.7.0/nifi-0.7.0-bin.tar.gz
+
+tar -zxvf nifi-0.7.0-bin.tar.gz
+ln -s nifi-0.7.0 nifi
+
+cd nifi 
+vi ./conf/nifi.properties
+
+nifi.web.http.port=7070
+
+
+./nifi.sh start 
