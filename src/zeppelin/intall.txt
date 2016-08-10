@@ -24,7 +24,15 @@ export JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-amd64
 
 cd /bin
  ./zeppelin-daemon.sh start
+ 
+ 
+dependency add
+Dependencies
+org.apache.hive:hive-jdbc:0.14.0
+org.apache.hadoop:hadoop-common:2.6.0
 
+
+zeppelin restart
 
 
 
