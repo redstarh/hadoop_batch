@@ -43,7 +43,8 @@ a1.sinks.k1.channel = c1
 -------------------------------------------------------------        
 
 ## source file 만들기 ## 
-vi /home/hdfs/source/log.txt
+echo hello > ~/source/hello.txt
+echo bye   > ~/source/bye.txt
 
 ### run flume ###
 ~/flume/bin/flume-ng agent -n a1 -c ~/flume/conf/ -f ~/flume/conf/case01/case01.conf  -Dflume.monitoring.type=http   -Dflume.monitoring.port=41414
