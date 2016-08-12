@@ -4,78 +4,78 @@
 
 apt-get install openjdk-7-jdk 
 
+su - hdfs 
+
 wget http://apache.tt.co.kr/flume/1.6.0/apache-flume-1.6.0-bin.tar.gz
 tar -zxvf apache-flume-1.6.0-bin.tar.gz
-tar -zxvf apache-flume-1.6.0-bin.tar.gz
+ln -s apache-flume-1.6.0-bin flume
 
 
-#### 2. test
 
-mkdir ~/conf/case01
+
+#### 2. test####
+
+(1) case01 
+
+mkdir ~/flume/conf/case01
 vi case01.conf
-mkdir /root/source
-mkdir /root/sink
+mkdir ~/source
+mkdir ~/sink
 
--------------------------------------
-agent.sources = spoolDirSource
-agent.channels = memoryChannel
-agent.sinks = fileRollSink
+------------------- case01.conf ------------------
+a1.sources = s1
+a1.channels = c1
+a1.sinks = k1
 
-agent.sources.spoolDirSource.type = spoolDir
-agent.sources.spoolDirSource.spoolDir = /root/source
-agent.sources.spoolDirSource.channels = memoryChannel
+a1.sources.s1.type = spoolDir
+a1.sources.s1.spoolDir = /home/hdfs/source
 
-agent.channels.memoryChannel.type = memory
-agent.channels.memoryChannel.capacity = 1000
+a1.channels.c1.type = memory
+a1.channels.c1.capacity = 1000
 
-agent.sinks.fileRollSink.type = file_roll
-agent.sinks.fileRollSink.sink.directory = /root/sink
-agent.sinks.fileRollSink.channel = memoryChannel
-agent.sinks.fileRollSink.sink.rollInterval = 0
+a1.sinks.k1.type = file_roll
+a1.sinks.k1.sink.directory = /home/hdfs/sink
+a1.sinks.k1.sink.rollInterval = 0
+
+
+a1.sources.s1.channels = c1
+a1.sinks.k1.channel = c1
 -------------------------------------------------------------        
 
+## source file 만들기 ## 
+vi /home/hdfs/source/log.txt
+
 ### run flume ###
-./flume-ng agent -n case01 --conf /root/flume/conf/case01 -f /root/flume/conf/case01/case01.conf -Dflume.monitoring.type=http   -Dflume.monitoring.port=41414
+~/flume/bin/flume-ng agent -n a1 -c ~/flume/conf/ -f ~/flume/conf/case01/case01.conf  -Dflume.monitoring.type=http   -Dflume.monitoring.port=41414
 
+## 결과 확인 ###
+ls -al /home/hdfs/sink 
 
+(2) case 02
 
+---------------- case02.conf ---------------
+a1.sources = s1
+a1.channels = c1
+a1.sinks = k1
 
- 
+a1.sources.s1.channels = c1
+a1.sinks.k1.channel = c1
 
-# 폴더 만들기
+a1.sources.s1.type = netcat
+a1.sources.s1.bind = localhost
+a1.sources.s1.port = 9999
 
- 
+a1.channels.c1.type = memory
+a1.channels.c1.capacity = 1000
 
-mkdir /tmp/fileroll
+a1.sinks.k1.type = logger
+--------------------------------------------
 
-mkdir /tmp/spool
+~/flume/bin/flume-ng agent -c ~/flume/conf/ -f ~/flume/conf/case02/case02.conf -n a1 -Dflume.root.logger=INFO,console
 
-# Agent 실행
-
- 
-
-bin/flume-ng agent --conf-file conf/case01.conf.properties --name agent 
-
-# data 생성
-
- 
-
-ls -al /tmp/fileroll
-
-echo hello > /tmp/spool/hello.txt
-
-echo bye > /tmp/spool/bye.txt
-
-# 결과 확인
-
- 
-
-ls -al /tmp/spool
-
-ls -al /tmp/fileroll
-
- 
-
+### telnet ###
+telnet localhost 9999
+--> log check
  
 
  
@@ -91,35 +91,24 @@ agent.sinks = hdfsSink
  
 
 agent.sources.execSource.type = exec
-
 agent.sources.execSource.command = tail -f /tmp/buffer
-
 agent.sources.execSource.batchSize = 5
-
 agent.sources.execSource.channels = fileChannel
-
 agent.sources.execSource.interceptors = timestampInterceptor
-
 agent.sources.execSource.interceptors.timestampInterceptor.type = timestamp
 
  
 
 agent.sinks.hdfsSink.type = hdfs
-
 agent.sinks.hdfsSink.hdfs.path = hdfs://bigdata20-02/flume/%Y%m%d-%H%M%S
-
 agent.sinks.hdfsSink.hdfs.fileType = DataStream
-
 agent.sinks.hdfsSink.hdfs.writeFormat = Text
-
 agent.sinks.hdfsSink.channel = fileChannel
 
  
 
 agent.channels.fileChannel.type = file
-
 agent.channels.fileChannel.checkpointDir = /tmp/flume/checkpoint
-
 agent.channels.fileChannel.dataDirs = /tmp/flume/data
 
  
