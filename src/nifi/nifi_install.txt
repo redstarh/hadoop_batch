@@ -1,15 +1,21 @@
 
 
+
+## 1. user switch && download
 su - hdfs 
 wget http://mirror.navercorp.com/apache/nifi/0.7.0/nifi-0.7.0-bin.tar.gz
 
+
+## 2. install && link
 tar -zxvf nifi-0.7.0-bin.tar.gz
 ln -s nifi-0.7.0 nifi
 
+
+## 3. config modify && run 
 cd nifi 
 vi ./conf/nifi.properties
 
 nifi.web.http.port=7070
 
 
-./nifi.sh start 
+./bin//nifi.sh start 
