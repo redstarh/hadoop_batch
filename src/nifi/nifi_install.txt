@@ -19,3 +19,22 @@ nifi.web.http.port=7070
 
 
 ./bin//nifi.sh start 
+
+
+http://192.168.56.201:7070/nifi/
+
+apt-get install vsftpd
+
+sftp 10.250.44.124
+
+
+/data/dw/original/metro_commerce
+/data/dw/original/metro_boading_person
+
+
+/data/skacademy/metro_boading_person
+/data/skacademy/metro_commerce
+
+
+
+
