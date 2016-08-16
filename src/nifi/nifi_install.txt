@@ -32,6 +32,8 @@ sftp 10.250.44.124
 /data/dw/original/metro_boading_person
 
 
+
+
 /data/skacademy/metro_boading_person
 /data/skacademy/metro_commerce
 
