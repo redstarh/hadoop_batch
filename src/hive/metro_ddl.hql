@@ -1,5 +1,8 @@
 
- 
+
+create database batch;
+
+
 CREATE EXTERNAL TABLE batch.metro_payment_amount (
 dtm                   String  ,
 commerce_Number       String  ,
@@ -8,7 +11,7 @@ amount                int
 ) 
 PARTITIONED BY ( base_dt STRING ) 
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ","  
-LOCATION '/data/in/raw/payment_amount/'
+LOCATION '/skacademy/batch/data/in/raw/payment_amount/'
 ; 
 
 ALTER TABLE batch.metro_payment_amount ADD   PARTITION(base_dt='${YMD}');
@@ -28,7 +31,7 @@ contract_end_dt       String  ,
 Rent_fee              int  
 ) 
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ","  
-LOCATION '/data/dw/original/metro_commerce'; 
+LOCATION '/skacademy/batch/data/dw/original/metro_commerce'; 
 
 CREATE EXTERNAL TABLE  batch.metro_boading_person ( 
 Station               String  ,
@@ -60,4 +63,4 @@ HH23                  int     ,
 Sum                   int 
 ) 
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ","  
-LOCATION '/data/dw/original/metro_boading_person'; 
+LOCATION '/skacademy/batch/data/dw/original/metro_boading_person'; 
