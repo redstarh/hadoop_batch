@@ -2,6 +2,7 @@
 
 create database batch;
 
+-- 지하철 결재금액
 
 CREATE EXTERNAL TABLE batch.metro_payment_amount (
 dtm                   String  ,
@@ -11,12 +12,15 @@ amount                int
 ) 
 PARTITIONED BY ( base_dt STRING ) 
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ","  
-LOCATION '/skacademy/batch/data/in/raw/payment_amount/'
+LOCATION '/skacademy/payment_amount'
 ; 
+
+
 
 ALTER TABLE batch.metro_payment_amount ADD   PARTITION(base_dt='${YMD}');
 
- 
+
+-- 지하철 상가현황
 
 CREATE EXTERNAL TABLE batch.metro_commerce (
 sequence              int     ,
@@ -32,6 +36,10 @@ Rent_fee              int
 ) 
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ","  
 LOCATION '/skacademy/batch/data/dw/original/metro_commerce'; 
+
+
+
+-- 지하철 별 승하차 인원
 
 CREATE EXTERNAL TABLE  batch.metro_boading_person ( 
 Station               String  ,
