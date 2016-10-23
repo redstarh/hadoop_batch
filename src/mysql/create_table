@@ -1,0 +1,14 @@
+
+#### mysql 접속 #####
+mysql -u root -p 
+
+
+#### database 생성 #####
+create database batch DEFAULT CHARACTER SET utf8;
+
+
+CREATE TABLE dept (
+  dept_no INT(11) unsigned NOT NULL,
+  dept_name VARCHAR(32) NOT NULL,
+  PRIMARY KEY (dept_no)
+);
