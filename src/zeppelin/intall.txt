@@ -1,15 +1,13 @@
+ 
 
-test 
-zeppelin 설치 
-
-
+### 유저 생성 ( root 실행 ) #####
 adduser zeppelin 
-adduser zeppelin
 
+#### 설치 및 셋팅 ####
 su - zeppelin
-
-http://apache.tt.co.kr/zeppelin/zeppelin-0.6.0/zeppelin-0.6.0-bin-all.tgz
-tar -zxvf zeppelin-0.6.0-bin-all.tgz
+wget http://mirror.navercorp.com/apache/zeppelin/zeppelin-0.6.2/zeppelin-0.6.2-bin-all.tgz
+tar -zxvf zeppelin-0.6.2-bin-all.tgz
+ln -s zeppelin-0.6.2-bin-all zeppelin
 
 
 cd ./zeppelin/conf 
@@ -22,17 +20,21 @@ export HADOOP_HOME=/usr/hdp/current/hadoop-client
 export SPARK_HOME=/usr/hdp/current/spark-client
 export JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-amd64
 
-cd /bin
+
+#### 제플린 기동 ####
+cd ~/zeppelin/bin
  ./zeppelin-daemon.sh start
- 
- 
-dependency add
+
+#### 구동확인 #####
+http://192.168.56.201:9090/
+
+
+#### dependency add #####
 Dependencies
 org.apache.hive:hive-jdbc:0.14.0
 org.apache.hadoop:hadoop-common:2.6.0
 
-
-zeppelin restart
+ 
 
 
 
