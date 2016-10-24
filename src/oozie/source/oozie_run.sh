@@ -10,10 +10,11 @@ hadoop fs -mkdir /skakademy/oozie_src
 
 #### source download ####
 
+cd ~/oozie
 wget https://raw.githubusercontent.com/hellotherecsy/SkAcademy/master/src/oozie/source/job.properties
 wget https://raw.githubusercontent.com/hellotherecsy/SkAcademy/master/src/oozie/source/workflow.xml
 wget https://raw.githubusercontent.com/hellotherecsy/SkAcademy/master/src/oozie/source/script.hql
-cp /etc/hive/conf/hive-site.xml  ~/oozie/. 
+https://raw.githubusercontent.com/hellotherecsy/SkAcademy/master/src/oozie/hive-site.xml
 
 #### hadoop put for source ####
 
