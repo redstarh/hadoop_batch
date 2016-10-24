@@ -1,15 +1,14 @@
 # SkAcademy
 
+#### VM download #####
 
-1일차
+http://169.56.70.54/vm/
 
-1h Architect overview 
-1h In/out Data 공유 ( 비지니스 로직 포함 ) 
-1h 아키텍쳐 설계 ( 조별 ) 
 
-2h 아키텍쳐 리뷰 ( 발표 및 토론)
-3H 개발환경 셋팅 
-22
+
+
+
+
 
 
 /skacademy/batch/data/meta/${table}                   // meta table
