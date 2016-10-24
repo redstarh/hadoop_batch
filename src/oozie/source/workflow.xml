@@ -13,7 +13,7 @@
                 </property>              
             </configuration>
             <script>script.hql</script>
-            <param>base_dt=${day}</param>
+            <param>day=${day}</param>
         </hive>
         <ok to="end"/>
         <error to="fail"/>
