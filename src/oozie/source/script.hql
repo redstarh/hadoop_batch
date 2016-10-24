@@ -1,4 +1,6 @@
 
+set hive.execution.engine=mr;
+
 Insert overwrite table batch.daily_station_amount partition (base_dt = '${day}' )
 select  A.Station   , 
        SUM(B.amount) amount 
