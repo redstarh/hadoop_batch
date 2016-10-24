@@ -1,0 +1,15 @@
+
+/usr/bin/apt-get -q -o Dpkg::Options::=--force-confdef --allow-unauthenticated --assume-yes install 'oozie-2-4-.*'
+
+/usr/bin/apt-get -q -o Dpkg::Options::=--force-confdef --allow-unauthenticated --assume-yes install 'oozie-2-4-.*'
+
+
+
+rm -rf  /var/lib/dpkg/lock
+rm -rf /var/cache/apt/archives/lock
+rm -rf /var/lib/apt/lists/lock
+
+
+
+apt-get clean 
+
