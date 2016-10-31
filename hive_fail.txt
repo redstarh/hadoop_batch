@@ -5,5 +5,6 @@
 
 ### python encode move ####
 
+cd ~
 wget https://raw.githubusercontent.com/hellotherecsy/SkAcademy/master/src/hive/sitecustomize.py  
 mv ~/sitecustomize.py  /usr/lib/python2.6/site-packages/sitecustomize.py
