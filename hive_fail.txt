@@ -1,0 +1,9 @@
+### 에
+/usr/lib/python2.6/site-packages/resource_management/libraries/functions/get_user_call_output.py
+
+
+### 
+
+wget  sitecustomize.py /usr/lib/python2.6/site-packages/sitecustomize.py
+
+/usr/lib/python2.6/site-packages/sitecustomize.py
