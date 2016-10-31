@@ -1,9 +1,9 @@
-### 에
+
+### error script ###
 /usr/lib/python2.6/site-packages/resource_management/libraries/functions/get_user_call_output.py
 
 
-### 
+### python encode move ####
 
-wget  sitecustomize.py /usr/lib/python2.6/site-packages/sitecustomize.py
-
-/usr/lib/python2.6/site-packages/sitecustomize.py
+wget https://raw.githubusercontent.com/hellotherecsy/SkAcademy/master/src/hive/sitecustomize.py  
+mv ~/sitecustomize.py  /usr/lib/python2.6/site-packages/sitecustomize.py
