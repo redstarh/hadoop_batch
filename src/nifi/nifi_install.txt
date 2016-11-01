@@ -21,6 +21,8 @@ ln -s nifi-1.0.0 nifi
 ## 3. config modify && run 
 cd nifi 
 vi ./conf/nifi.properties
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+
 
 ### 수정 ###
 nifi.web.http.port=7070
