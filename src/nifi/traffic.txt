@@ -46,7 +46,7 @@ port= 22
 username = ftpuser
 password = ftpuser
 Remote Path = /var/www/html/skacademy/payment_amount
-File Filter Regex = .*.csv
+File Filter Regex = .*.dat
 Path Filter Regex = base_dt=.*
 Delete Originla = false      #### 매우 중요 #####
 Search Recursively = true    #### 매우 중요 #####
