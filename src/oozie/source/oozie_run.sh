@@ -14,7 +14,7 @@ cd ~/oozie
 wget https://raw.githubusercontent.com/hellotherecsy/SkAcademy/master/src/oozie/source/job.properties
 wget https://raw.githubusercontent.com/hellotherecsy/SkAcademy/master/src/oozie/source/workflow.xml
 wget https://raw.githubusercontent.com/hellotherecsy/SkAcademy/master/src/oozie/source/script.hql
-https://raw.githubusercontent.com/hellotherecsy/SkAcademy/master/src/oozie/hive-site.xml
+wget https://raw.githubusercontent.com/hellotherecsy/SkAcademy/master/src/oozie/hive-site.xml
 
 #### hadoop put for source ####
 
