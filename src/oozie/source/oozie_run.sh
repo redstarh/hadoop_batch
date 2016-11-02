@@ -6,7 +6,7 @@ user : hdfs
 
 mkdir ~/oozie 
 cd ~/oozie 
-hadoop fs -mkdir /skakademy/oozie_src
+hadoop fs -mkdir /skacademy/oozie_src
 
 #### source download ####
 
