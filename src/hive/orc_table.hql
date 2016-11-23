@@ -24,3 +24,38 @@ from batch.metro_payment_amount
 where base_dt='20160801'
 ;
 
+
+
+
+CREATE  TABLE payment_amount_orc (
+dtm                   String  ,
+commerce_Number       String  ,
+payment_dt            String  ,
+amount                int  
+)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ","
+STORED AS ORC
+;
+
+
+
+CREATE  TABLE payment_amount (
+dtm                   String  ,
+commerce_Number       String  ,
+payment_dt            String  ,
+amount                int  
+)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ","
+;
+
+
+
+insert overwrite table  payment_amount
+select 
+dtm                   ,
+commerce_Number       ,
+payment_dt            ,
+amount                
+from  metro_payment_amount
+;
+
