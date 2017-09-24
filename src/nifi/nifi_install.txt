@@ -12,6 +12,8 @@ su - hdfs
 wget http://mirror.navercorp.com/apache/nifi/0.7.0/nifi-0.7.0-bin.tar.gz
 wget http://mirror.apache-kr.org/nifi/1.0.0/nifi-1.0.0-bin.tar.gz
 
+wget https://archive.apache.org/dist/nifi/1.3.0/nifi-1.3.0-bin.tar.gz
+
 
 ## 2. install && link
 tar -zxvf nifi-1.0.0-bin.tar.gz
