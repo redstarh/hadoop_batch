@@ -1,14 +1,17 @@
 
 
 
-#### 1.ssh root 접속 #####
+### 1.ssh root 접속
 $> sudo vi /etc/ssh/sshd_config
   PermitRootLogin yes <- 추가
-$> sydo service sshd restart
+$> sudo service sshd restart
+
+### 01. putty 접속
+ssh root@192.168.56.201
 
  
 
-################ 2.사전 setting #########################
+###  2.사전 setting  
 root 계정으로 실행
 
 $> ssh-keygen
@@ -20,7 +23,7 @@ $>export LANG=en_US.UTF-8
 
 
 
-######## 3. ambari 설치 ######################
+### 3. ambari 설치 ###
 
 ### 01. putty 접속 ####
 ssh root@192.168.56.201
@@ -41,8 +44,6 @@ $> ambari-server start
 #######################################################
 
 
-
-
 #### 4. ambari web server ####
 
 http://192.168.56.201:8080
@@ -53,7 +54,7 @@ key : /root/.ssh/id_rsa 입력 ( ambari 창 )
 
 
 
-############# hadoop02 setting ###################
+#### 5.  hadoop02 setting ###################
 계정 : root
 
 $> ssh-keygen
@@ -61,9 +62,9 @@ $> ssh-keygen
 [ hadoop01 서버에서 root 계정으로 실행 ]
 $> scp /root/.ssh/id_rsa.pub hadoop02:/root/.ssh/authorized_keys
 
-########################################################## 
 
-#### teragen 실습 ############
+
+#### 6. teragen 실습 ### 
 
 계정 : hdfs
 
