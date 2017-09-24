@@ -4,11 +4,11 @@ http://192.168.56.201:7070/nifi/
 
 
 #### source data location ####
-http://169.56.70.54/skacademy/
+http://169.56.72.229/skacademy/
 
 
 #### getSFTP for metro_boading_person ####
-hostname = 169.56.70.54
+hostname = 169.56.72.229
 port= 22
 username = ftpuser
 password = ftpuser
@@ -25,7 +25,7 @@ Conflict Resolution Strategy = replace
 
 
 #### getSFTP for metro_commerce ####
-hostname = 169.56.70.54
+hostname = 169.56.72.229
 port= 22
 username = ftpuser
 password = ftpuser
@@ -41,7 +41,7 @@ Conflict Resolution Strategy = replace
 
 
 #### getSFTP for metro_commerce ####
-hostname = 169.56.70.54
+hostname = 169.56.72.229
 port= 22
 username = ftpuser
 password = ftpuser
