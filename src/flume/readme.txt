@@ -2,6 +2,7 @@
 
 #### 1. download 및 flume  설치  
 
+( root계정 실행 ) 
 apt-get install openjdk-7-jdk 
 
 su - hdfs 
@@ -18,9 +19,12 @@ ln -s apache-flume-1.6.0-bin flume
 (1) case01 
 
 mkdir ~/flume/conf/case01
-vi case01.conf
 mkdir ~/source
 mkdir ~/sink
+
+
+vi ~/flume/conf/case01/case01.conf
+
 
 ------------------- case01.conf ------------------
 a1.sources = s1
@@ -58,7 +62,7 @@ http://192.168.56.201:41414
 
 mkdir ~/flume/conf/case02 
 cd    ~/flume/conf/case02
-vi case02.conf
+vi ~/flume/conf/case02/case02.conf
 
 ---------------- case02.conf ---------------
 
