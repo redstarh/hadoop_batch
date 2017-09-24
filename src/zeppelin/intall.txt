@@ -5,9 +5,9 @@ adduser zeppelin
 
 #### 설치 및 셋팅 ####
 su - zeppelin
-wget http://mirror.navercorp.com/apache/zeppelin/zeppelin-0.6.2/zeppelin-0.6.2-bin-all.tgz
-tar -zxvf zeppelin-0.6.2-bin-all.tgz
-ln -s zeppelin-0.6.2-bin-all zeppelin
+wget http://apache.mirror.cdnetworks.com/zeppelin/zeppelin-0.7.3/zeppelin-0.7.3-bin-all.tgz
+tar -zxvf zeppelin-0.7.3-bin-all.tgz
+ln -s zeppelin-0.7.3-bin-all zeppelin
 
 
 cd ./zeppelin/conf 
@@ -30,6 +30,10 @@ http://192.168.56.201:9090/
 
 
 #### dependency add #####
+Properties
+hive.driver : 	org.apache.hive.jdbc.HiveDriver
+hive.url	 : jdbc:hive2://localhost:10000
+
 Dependencies
 org.apache.hive:hive-jdbc:0.14.0
 org.apache.hadoop:hadoop-common:2.6.0
