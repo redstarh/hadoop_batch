@@ -19,7 +19,8 @@ LOCATION '/skacademy/payment_amount'
 
 ALTER TABLE batch.metro_payment_amount ADD   PARTITION(base_dt='${YMD}');
 ex) 
-ALTER TABLE batch.metro_payment_amount ADD   PARTITION(base_dt='20160801');
+ALTER TABLE batch.metro_payment_amount ADD   PARTITION(base_dt='20160721');
+ALTER TABLE batch.metro_payment_amount ADD   PARTITION(base_dt='20160803');
 
 -- 지하철 상가현황
 
