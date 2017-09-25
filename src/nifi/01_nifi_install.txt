@@ -30,7 +30,7 @@ nifi.web.http.port=7070
 vi ./conf/bootstrap.conf
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
-### 
+### 기동
 ./bin/nifi.sh start 
 
 ### web addresss #### 
