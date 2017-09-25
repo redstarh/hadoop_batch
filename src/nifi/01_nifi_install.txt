@@ -28,6 +28,9 @@ vi ./conf/nifi.properties
 nifi.web.http.port=7070
 
 vi ./conf/bootstrap.conf
+java=/usr/lib/jvm/java-8-openjdk-amd64/bin/java
+
+( 안되면 콘솔창에 ) 
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
 ### 기동
@@ -36,11 +39,11 @@ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ### web addresss #### 
 http://192.168.56.201:7070/nifi/
 
+
+
+
 apt-get install vsftpd
 sftp 10.250.44.124
-
-
-
 
 ## source 
 /data/skacademy/metro_boading_person
