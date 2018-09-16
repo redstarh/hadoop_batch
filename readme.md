@@ -6,7 +6,7 @@
    - http://169.56.70.54/vm/
 
 ## 사전 작업 ( 외부에서 ssh 접속이 VM으로 되지 않을 때 )
-   
+
      ``` shell
       sudo vi /etc/ssh/sshd_config
       PermitRootLogin yes <- 추가
@@ -26,12 +26,10 @@
    ```  
 
    - repo 최신화
-   
    ```
    $> apt-get update
    ```
    -  ambari-setting for hive MetaStore
-   
     ```
     export LANG=en_US.UTF-8
     ```
@@ -125,19 +123,18 @@
 
 
 ## 6.spark 실습  
-
-
    -  spark example : pi 구하기
+   
 ```
-   : cd /usr/hdp/current/spark-client/
+   cd /usr/hdp/current/spark2-client/
    ./bin/spark-submit --class org.apache.spark.examples.SparkPi \
        --master yarn \
        --deploy-mode client \
-       --driver-memory 1g \
-       --executor-memory 1g \
+       --driver-memory 500m \
+       --executor-memory 500m \
        --executor-cores 1 \
        --queue default \
-       lib/spark-examples*.jar \
+       examples/jars/spark-examples*.jar \
        10
 ```
 
@@ -146,7 +143,11 @@
     - mode : yarn-client
 
 ```
-    ./bin/spark-shell --master yarn --deploy-mode client
+   cd /usr/hdp/current/spark2-client/
+   hadoop fs -mkdir -p /test/input
+   hadoop fs -put /usr/hdp/current/spark2-client/LICENSE /test/input/.
+
+  ./bin/spark-shell --master yarn --deploy-mode client
 
    val textFile = sc.textFile("hdfs:///test/input")
    val counts = textFile.flatMap(line => line.split(" ")).map(word => (word, 1)).reduceByKey(_ + _)
