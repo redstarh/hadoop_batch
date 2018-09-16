@@ -18,18 +18,20 @@
 ###  1. OS  pre setting
    - root 계정으로 실행
 
-   ``` 
+   ```
    $> ssh-keygen
    $> cp /root/.ssh/id_rsa.pub /root/.ssh/authorized_keys
       ( ssh-copy-id -i .ssh/id_rsa.pub hadoop01 )
    $> ulimit -n 10000
-    ```
+   ```  
 
    - repo 최신화
+   
    ```
    $> apt-get update
    ```
    -  ambari-setting for hive MetaStore
+   
     ```
     export LANG=en_US.UTF-8
     ```
