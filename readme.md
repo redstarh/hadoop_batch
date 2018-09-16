@@ -6,7 +6,7 @@
    - http://169.56.70.54/vm/
 
 ## 사전 작업 ( 외부에서 ssh 접속이 VM으로 되지 않을 때 )
-   -
+   
      ``` shell
       sudo vi /etc/ssh/sshd_config
       PermitRootLogin yes <- 추가
@@ -17,11 +17,12 @@
 
 ###  1. OS  pre setting
    - root 계정으로 실행
-   ``` shell
+
+   ``` 
    $> ssh-keygen
    $> cp /root/.ssh/id_rsa.pub /root/.ssh/authorized_keys
       ( ssh-copy-id -i .ssh/id_rsa.pub hadoop01 )
-   $>  ulimit -n 10000
+   $> ulimit -n 10000
     ```
 
    - repo 최신화
@@ -120,7 +121,7 @@
    $> yarn jar ./hadoop-mapreduce-examples.jar teravalidate  /user/suser/terasort/1g /user/suser/terasort/validate
 ```
 
-  
+
 ## 6.spark 실습  
 
 
@@ -141,7 +142,7 @@
    - word count
     - 경로 : /test/input
     - mode : yarn-client
-    
+
 ```
     ./bin/spark-shell --master yarn --deploy-mode client
 
