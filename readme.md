@@ -54,7 +54,7 @@
    ```
 
    ```
-   $> wget -O /etc/apt/sources.list.d/ambari.list http://public-repo-1.hortonworks.com/ambari/ubuntu14/2.x/updates/2.6.2.2/ambari.list
+   $> wget -O wget -O /etc/apt/sources.list.d/ambari.list http://public-repo-1.hortonworks.com/ambari/ubuntu16/2.x/updates/2.6.2.2/ambari.list
    $> apt-key adv --recv-keys --keyserver keyserver.ubuntu.com B9733A7A07513CAD
    $> apt-get update
    $> apt-cache showpkg ambari-server
@@ -86,6 +86,7 @@
    - http://192.168.56.201:8080
 ```
    key : /root/.ssh/id_rsa 입력 ( ambari 창 )
+   hive MetaStore : localhost로 변경
 ```
 
 ## 4.  hadoop02 setting  
@@ -124,7 +125,7 @@
 
 ## 6.spark 실습  
    -  spark example : pi 구하기
-   
+
 ```
    cd /usr/hdp/current/spark2-client/
    ./bin/spark-submit --class org.apache.spark.examples.SparkPi \
