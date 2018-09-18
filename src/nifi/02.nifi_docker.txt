@@ -2,7 +2,7 @@
 
 
 
-## Docker 설치 
+## Docker 설치
  root 계정
  apt-get update
  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -

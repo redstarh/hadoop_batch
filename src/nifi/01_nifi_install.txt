@@ -3,23 +3,23 @@
 #### Open JDK 8 설치 ####
 
 add-apt-repository ppa:openjdk-r/ppa
-apt-get update 
+apt-get update
 apt-get install openjdk-8-jdk
 
 
 ## 1. user switch && download
-su - hdfs 
+server : hadoop02
+계정 : hdfs ( su - hdfs )
 
-wget https://archive.apache.org/dist/nifi/1.3.0/nifi-1.3.0-bin.tar.gz
-
+wget http://mirror.navercorp.com/apache/nifi/1.7.1/nifi-1.7.1-bin.tar.gz
 
 ## 2. install && link
 tar -zxvf nifi-1.3.0-bin.tar.gz
 ln -s nifi-1.3.0 nifi
 
 
-## 3. config modify && run 
-cd nifi 
+## 3. config modify && run
+cd nifi
 
 
 ### 수정 ###
@@ -30,14 +30,14 @@ nifi.web.http.port=7070
 vi ./conf/bootstrap.conf
 java=/usr/lib/jvm/java-8-openjdk-amd64/bin/java
 
-( 안되면 콘솔창에 ) 
+( 안되면 콘솔창에 )
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
 ### 기동
-./bin/nifi.sh start 
+./bin/nifi.sh start
 
-### web addresss #### 
-http://192.168.56.201:7070/nifi/
+### web addresss ####
+http://192.168.56.202:7070/nifi/
 
 
 
@@ -45,7 +45,7 @@ http://192.168.56.201:7070/nifi/
 apt-get install vsftpd
 sftp 10.250.44.124
 
-## source 
+## source
 /data/skacademy/metro_boading_person
 /data/skacademy/metro_commerce
 /data/skacademy/payment_amount/base_dt=20160816
@@ -54,6 +54,3 @@ sftp 10.250.44.124
 /skacademy/batch/data/dw/original/metro_commerce
 /skacademy/batch/data/dw/original/metro_boading_person
 /skacademy/batch/data/in/raw/payment_amount/base_dt=20160816
-
-
-
