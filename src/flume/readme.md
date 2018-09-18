@@ -11,6 +11,7 @@ apt-get install oracle-java8-installer
 - 계정 : hdfs
 
   ```
+  su - hdfs
   wget http://mirror.apache-kr.org/flume/1.8.0/apache-flume-1.8.0-bin.tar.gz
   tar -zxvf apache-flume-1.8.0-bin.tar.gz
   ln -s apache-flume-1.8.0-bin flume

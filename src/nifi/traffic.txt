@@ -1,12 +1,12 @@
 
-### nifi web addresss #### 
+### nifi web addresss ####
 http://192.168.56.201:7070/nifi/
 
 
 #### source data location ####
 http://169.56.72.229/skacademy/
 
-
+## 1 ##
 #### getSFTP for metro_boading_person ####
 hostname = 169.56.72.229
 port= 22
@@ -20,10 +20,10 @@ Delete Originla = false #### 매우 중요 #####
 ##### PutHdfs for metro_boading_person ####
 Hadoop Configuration Resources = /etc/hadoop/conf/core-site.xml,/etc/hadoop/conf/hdfs-site.xml
 Directory = /skacademy/batch/data/dw/original/metro_boading_person
-Conflict Resolution Strategy = replace 
+Conflict Resolution Strategy = replace
 
 
-
+## 2 ##
 #### getSFTP for metro_commerce ####
 hostname = 169.56.72.229
 port= 22
@@ -34,13 +34,13 @@ File Filter Regex = .*.csv
 Delete Originla = false #### 매우 중요 #####
 
 
-##### PutHdfs for metro_boading_person ####
+##### PutHdfs for metro_commerce ####
 Hadoop Configuration Resources = /etc/hadoop/conf/core-site.xml,/etc/hadoop/conf/hdfs-site.xml
 Directory = /skacademy/batch/data/dw/original/metro_commerce
-Conflict Resolution Strategy = replace 
+Conflict Resolution Strategy = replace
 
-
-#### getSFTP for metro_commerce ####
+## 3 ##
+#### getSFTP for payment_amount ####
 hostname = 169.56.72.229
 port= 22
 username = ftpuser
@@ -48,20 +48,17 @@ password = ftpuser
 Remote Path = /var/www/html/skacademy/payment_amount
 File Filter Regex = .*.dat
 Path Filter Regex = base_dt=.*
-Delete Originla = false      #### 매우 중요 #####
+Delete Original = false      #### 매우 중요 #####
 Search Recursively = true    #### 매우 중요 #####
 
 
 ##### PutHdfs for metro_commerce  ####
 Hadoop Configuration Resources = /etc/hadoop/conf/core-site.xml,/etc/hadoop/conf/hdfs-site.xml
 Directory = ${path:replace('/var/www/html','')}
-Conflict Resolution Strategy = replace 
-
-base_dt=.*
+Conflict Resolution Strategy = replace
 
 
-
-## source 
+## source
 /data/skacademy/metro_boading_person
 /data/skacademy/metro_commerce
 /data/skacademy/payment_amount/base_dt=20160816

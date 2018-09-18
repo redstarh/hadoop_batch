@@ -8,14 +8,14 @@ apt-get install openjdk-8-jdk
 
 
 ## 1. user switch && download
-server : hadoop02
+server : hadoop01
 계정 : hdfs ( su - hdfs )
 
 wget http://mirror.navercorp.com/apache/nifi/1.7.1/nifi-1.7.1-bin.tar.gz
 
 ## 2. install && link
-tar -zxvf nifi-1.3.0-bin.tar.gz
-ln -s nifi-1.3.0 nifi
+tar -zxvf nifi-1.7.1-bin.tar.gz
+ln -s nifi-1.7.1 nifi
 
 
 ## 3. config modify && run
@@ -38,8 +38,6 @@ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
 ### web addresss ####
 http://192.168.56.202:7070/nifi/
-
-
 
 
 apt-get install vsftpd

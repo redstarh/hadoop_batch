@@ -22,6 +22,7 @@
    $> ssh-keygen
    $> cp /root/.ssh/id_rsa.pub /root/.ssh/authorized_keys
       ( ssh-copy-id -i .ssh/id_rsa.pub hadoop01 )
+      ssh root@hadoop01
    $> ulimit -n 10000
    ```  
 
@@ -94,6 +95,9 @@
 
 ```
    $> ssh-keygen
+   $> apt-get install python2.7
+   $> apt-get install python-minimal
+   $> apt-key adv --recv-keys --keyserver keyserver.ubuntu.com B9733A7A07513CAD
    [ hadoop01 서버에서 root 계정으로 실행 ]
    $> scp /root/.ssh/id_rsa.pub hadoop02:/root/.ssh/authorized_keys
 ```
