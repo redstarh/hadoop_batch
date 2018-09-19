@@ -3,7 +3,7 @@
 
 
 ## vm Download path
-   - http://169.56.70.54/vm/
+   - http://169.56.72.229/vm/
 
 ## 사전 작업 ( 외부에서 ssh 접속이 VM으로 되지 않을 때 )
 
@@ -55,7 +55,7 @@
    ```
 
    ```
-   $> wget -O wget -O /etc/apt/sources.list.d/ambari.list http://public-repo-1.hortonworks.com/ambari/ubuntu16/2.x/updates/2.6.2.2/ambari.list
+   $> wget -O  /etc/apt/sources.list.d/ambari.list http://public-repo-1.hortonworks.com/ambari/ubuntu16/2.x/updates/2.6.2.2/ambari.list
    $> apt-key adv --recv-keys --keyserver keyserver.ubuntu.com B9733A7A07513CAD
    $> apt-get update
    $> apt-cache showpkg ambari-server
