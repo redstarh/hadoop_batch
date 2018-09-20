@@ -56,6 +56,6 @@ dtm                   ,
 commerce_Number       ,
 payment_dt            ,
 amount                
-from  metro_payment_amount
+from  batch.metro_payment_amount
 ;
 
