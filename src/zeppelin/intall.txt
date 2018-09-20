@@ -32,7 +32,7 @@ vi zeppelin-env.sh
 export ZEPPELIN_PORT=9090
 export HADOOP_HOME=/usr/hdp/current/hadoop-client
 export SPARK_HOME=/usr/hdp/current/spark2-client
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/bin/java
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
 
 #### 제플린 기동 ####
